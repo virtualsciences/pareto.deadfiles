@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="knmp.im">
+  <head>
+    <metal:css fill-slot="css_slot">
+      <style type="text/css">
+
+        #uidfixer-results li {
+          list-style-type: none;
+        }
+
+        #uidfixer-results a.unresolved {
+          color: red;
+        }
+
+      </style>
+    </metal:css>
+  </head>
+  <body>
+    <metal:main fill-slot="content">
+
+      <h1 i18n:translate="title_fix_links">
+        Results
+      </h1>
+      <form action="deadfiles" method="post" tal:define="results view/results" id="uidfixer-results">
+        <input type="checkbox" onchange="$('[name=remove]').attr('checked', this.checked)" />
+        <table border="1" style="font-size: 10px">
+          <thead>
+            <tr>
+              <th>&#xa0;</th>
+              <th>URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tal:block repeat="result results/dead">
+              <tr>
+                <td>
+                  <input type="checkbox" name="remove" tal:attributes="value result/path" />
+                </td>
+                <td>
+                  <a tal:attributes="href result/url"
+                      tal:content="result/url"></a>
+                </td>
+              </tr>
+            </tal:block>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2">
+                <strong>Total files found:</strong>
+                <em tal:content="results/numtotal"></em>
+                <strong>Files fixed:</strong>
+                <em tal:content="results/numfixed"></em>
+                <strong>Dead links:</strong>
+                <em tal:content="python:len(results['dead'])"></em>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="controls">
+          <input type="submit" name="remove-submit" value="Remove" />
+        </div>
+      </form>
+    </metal:main>
+  </body>
+</html>
+
