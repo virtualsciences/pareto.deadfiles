@@ -27,7 +27,7 @@
         Results
       </h1>
       <form action="deadfiles" method="post" tal:define="results view/results" id="uidfixer-results">
-        <input type="checkbox" onchange="$('[name=remove]').attr('checked', this.checked)" />
+        <input type="checkbox" onchange="$('[name=remove:list]').attr('checked', this.checked)" />
         <table border="1" style="font-size: 10px">
           <thead>
             <tr>
@@ -39,7 +39,7 @@
             <tal:block repeat="result results/dead">
               <tr>
                 <td>
-                  <input type="checkbox" name="remove" tal:attributes="value result/path" />
+                  <input type="checkbox" name="remove:list" tal:attributes="value result/path" />
                 </td>
                 <td>
                   <a tal:attributes="href result/url"
