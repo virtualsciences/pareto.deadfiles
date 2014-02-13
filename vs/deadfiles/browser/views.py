@@ -3,7 +3,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
-from pareto.plonehtml import plonehtml
+from vs.plonehtml import plonehtml
 
 from .. import deadfiles
 

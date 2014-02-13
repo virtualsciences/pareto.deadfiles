@@ -3,6 +3,6 @@
 bin
 develop-eggs
 parts
-pareto.deadfiles.egg-info
+vs.deadfiles.egg-info
 *.pyc
 dist

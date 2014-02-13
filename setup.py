@@ -3,7 +3,7 @@ import os
 
 version = '0.1'
 
-setup(name='pareto.deadfiles',
+setup(name='vs.deadfiles',
       version=version,
       description="Library to find and process HTML data in a Plone site.",
       long_description=open("README.txt").read() + "\n" +
@@ -19,12 +19,12 @@ setup(name='pareto.deadfiles',
       url='http://svn.plone.org/svn/collective/',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['pareto'],
+      namespace_packages=['vs'],
       include_package_data=True,
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'pareto.plonehtml',
+          'vs.plonehtml',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
