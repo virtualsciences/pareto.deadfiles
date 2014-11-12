@@ -7,7 +7,7 @@ def related_uids(instance):
     """
     if not hasattr(instance, 'getRelatedItems'):
         return []
-    ret = [obj.UID() for obj in instance.getRelatedItems()]
+    ret = [obj.UID() for obj in instance.getRelatedItems() if obj]
     if ret:
         print 'related items uids:', ret
     return ret
